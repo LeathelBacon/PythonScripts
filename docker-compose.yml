@@ -11,7 +11,7 @@ services:
        - db
 
   db:
-      build: /home/user/ops-exercise/db/
+      build: ./ops-exercise/db/
       image: db
       ports:
        - 27017:27017
