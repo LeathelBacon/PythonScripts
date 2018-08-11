@@ -4,7 +4,7 @@ Date: 11/08/18
 
 Description:
 This script downloads the tar file from the requested URL, unpacks it and execute the docker compose file and command
-
+Note: after cloning the repo place the script and docker-compose.yml inside the cloned dir
 '''
 
 #!/usr/bin/python
@@ -16,18 +16,16 @@ import json
 import sys
 import time
 
-#Downloading and extracting the files locally (before copying inside the container)
+#Downloading and extracting the files locally
 downloadFile = urllib.URLopener()
 downloadFile.retrieve("https://s3.eu-central-1.amazonaws.com/devops-exercise/pandapics.tar.gz", "file.tar.gz")
 tar= tarfile.open("file.tar.gz")
-tar.extractall("/public/images")
+os.system("mkdir images")
+tar.extractall("./public/images")
 tar.close()
 
 #The step to launch the docker-compose up (added the -d to detach or else script will not continue)
 os.system("docker-compose up -d")
-
-#Copy the directory extract in the first phase to the app container
-os.system("docker cp /public/images/ ops-exercise_app_oriel_1:/public")
 
 print 'File downloaded and extracted!!! "\n'
 
