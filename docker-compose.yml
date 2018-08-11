@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app_oriel:
+      build: .
+      image: app_oriel
+      links:
+       - db
+      ports:
+       - 3000:3000
+      depends_on:
+       - db
+
+  db:
+      build: /home/user/ops-exercise/db/
+      image: db
+      ports:
+       - 27017:27017
+~
