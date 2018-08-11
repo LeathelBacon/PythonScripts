@@ -1,0 +1,11 @@
+1. For the sake of the task login as root (or provide appropriate permissions for the user you are working with and use sudo where needed).
+2. Make sure you use python 2.7.5.
+3. Install docker engine (you may use https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce-1).
+4. Ensure the docker engine service is up and running.
+5. Install the docker-compose (only after docker engine is installed).
+6. Install git and clone the app+db from the repository.
+7. Download and place my docker-compose.yml and python script inside the cloned directory.
+8. Run the python script "python PandaMissionOriel.py"
+9. Optional:You can stop and start the container for the images to apply (as pointed in the task and tested).
+Note: docker stop [containerid]
+docker start [containerid]
